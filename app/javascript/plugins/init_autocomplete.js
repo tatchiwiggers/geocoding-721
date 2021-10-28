@@ -8,3 +8,4 @@ const initAutocomplete = () => {
 };
 
 export { initAutocomplete };
+// EXPORTOU FUNÇÃO... IMPORTAR NO javascript/packs/application.js

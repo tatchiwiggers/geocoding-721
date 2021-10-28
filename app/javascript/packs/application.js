@@ -32,3 +32,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
 });
+
+// LEMBRAR DE NÃO SOMENTE IMPORTAR MAS TAMBEM CHAMAR AS FUNÇÕES
+// DENTRO DO EVENTLISTENER DO TURBOLINKS LOAD

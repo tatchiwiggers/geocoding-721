@@ -5,7 +5,7 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
 
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    # o metodo `geocoded` filtra os flats que tem coordinates (latitude & longitude)
     # a variável markers é um array de hashes
     # percebam que @flats é um array, porem nos iteramos sobre esse array de
     # flats construindo um hash pra cada flat com chave a valor lat e long.
@@ -17,7 +17,12 @@ class FlatsController < ApplicationController
         # agora nos precisamos criar esse partial info_window 
         # no meu view/flats
         info_window: render_to_string(partial: "info_window", locals: { flat: flat })
-        # ir no locahost e mostrar que agora temos info window em map.dataset.markers
+        # ir no locahost e verificar que agora temos info window em map.dataset.markers
+        # no console do javascript - utilizar esse console pra entender de onde vem 
+        # as variaveis do codido doo init_mapbox.js
+
+        # aqui vcs colocam essa linha se quiserem add assets no info window de vcs.
+        # o proprio mapbox oferece algumas opções
         # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end

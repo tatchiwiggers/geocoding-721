@@ -60,11 +60,11 @@ RAIS DB:MIGRATE e agora precisamos adicionar duas colunas no nosso modelo - uma 
 Vocês vão perceber que existe muita configuração no geocoder, mto copy paste mesmmo, e poucas coisas
 pra vocês personalizarem.
 Vamos adicionar essas duas linhas aqui no modelo Flat, o que elas fazem:
+
 geocoded_by :address -> o geocoder vai trabalhar em cima do campo address, e daqui que ele vai tirar
 a lat e long;
 after_validation :geocode, if: :will_save_change_to_address? -> dai falamos pra ele rodar o geocoder
-de novo caso os dados do endereço sejam alterados. Então ele checa se depois que o campos address foi validade o endereço continua o mesmo, se continua, td ok, senão ele roda o geocoder de novo e atualiza
-a longitude e latitude.
+de novo caso os dados do endereço sejam alterados. Então ele checa se depois que o campos address foi validade o endereço continua o mesmo, se continua, td ok, senão ele roda o geocoder de novo e atualiza a longitude e latitude.
 
 # RESULT
 VAMOS TESTAR NO RAILS C
