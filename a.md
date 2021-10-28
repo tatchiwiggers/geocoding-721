@@ -131,3 +131,31 @@ Então a proxima coisa que vamos adicionar no nosso nosso é isso aqui.
 
 # PRODUCTION
 jogra pro heroku
+add flats
+mamae = Flat.create!(address: 'rua copernico 170, Belo Horizonte')
+tatchi = Flat.create!(address: 'Rua Matias Aires 440, Consolação')
+
+# GOING FURTHER
+
+# INFO WINDOWS (1)
+  lat: flat.latitude,
+  lng: flat.longitude,
+ info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+
+ # INFO WINDOWS (2)
+ agora vamos adicionar o codigo para aparecer o info window no nosso marker.
+
+ # Finally, Lets add some styling to our popups
+
+ # CUSTOM MARKERS (1)
+ existem 2 formas de vcs customizarem os popups de vcs.. vcs podem guardar uma imagem
+ nos assets de passa-la aqui como como argumento da asset_url
+ image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+
+ # CUSTOM MARKERS (2)
+ ou vocês podem utilizar esse codigo aqui, colocar la dentro do add markersr to map
+
+ # SEARCHING ON YOUR MAP
+
+ # ADDRESS INPUT AUTOCOMPLETE
+ ADICIONA O AUTOCOMPLETE AO CRIAR UM FLAT

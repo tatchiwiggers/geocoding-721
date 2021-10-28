@@ -1,9 +1,18 @@
 // aqui em cima temos nossos imports
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 // FIT MAP TO MARKERS
 const fitMapToMarkers = (map, markers) => {
+  markers.forEach((marker) => {
+    const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+
+    new mapboxgl.Marker()
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
+      .addTo(map);
+  });
   // ele cria um limite no nosso mapa
   const bounds = new mapboxgl.LngLatBounds();
   // e para cada marker que ele tem ele ajusta esse limite com o metodo extend
@@ -31,7 +40,7 @@ const initMapbox = () => {
     // esse codigo está na documentação do mapbox ok?
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb'
     });
 
     // aqui nos pegamos nossos markers, transformamos novamente
@@ -47,6 +56,10 @@ const initMapbox = () => {
     });
     // e aqui no final, apos fazer o mapa e os markers eu chamo essa função
     fitMapToMarkers(map, markers);
+    
+    // adds search bar on our map
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }));
   }
 };
 

@@ -13,7 +13,12 @@ class FlatsController < ApplicationController
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude
+        lng: flat.longitude,
+        # agora nos precisamos criar esse partial info_window 
+        # no meu view/flats
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
+        # ir no locahost e mostrar que agora temos info window em map.dataset.markers
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
