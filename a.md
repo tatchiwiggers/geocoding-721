@@ -95,13 +95,13 @@ endereços funcionar. Mas vamos então no nosso controller que ja foi gerador e 
 la no nosso index.
 
 # CONTROLLER
-copy paste - go to controller to explain
+copy paste do arquivo - go to controller to explain
 
 # VIEW
 uma outra coisa que vamos precisar fazer tambem e alterar nosso view
 <!-- app/views/flats/index.html.erb -->
 
-# PEGAR DARA MARKERS VIA JS
+# PEGAR DATA MARKERS VIA JS
 document.getElementById('map');
 aqui ele vai me dar o div de map, certo? Se esse id é unico na minha pagina, o JS ES6
 automaticamente cria uma variavel com o nome desse id. 
@@ -121,6 +121,17 @@ Agora vamos para o setup do mapbox
 IR PARA INIT_MAPBOX
 
 # JAVASCRIPT (2)
+IMPORTAR FUNC NO APP.JS
+// app/javascript/packs/application.js
+import { initMapbox } from '../plugins/init_mapbox';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
+
+ADD CSS
+
+# ADD MARKERS
 beleza temos um mapa - fizemos somente o mapbox. mas ta faltando nossos markers ne?
 então vamos nos slides e adicionar o codigo la depois de criar o mapa.
 
@@ -130,7 +141,7 @@ que queremos. Existe uma solução pra isso - sim. Aqui é que entra o fit map t
 Então a proxima coisa que vamos adicionar no nosso nosso é isso aqui.
 
 # PRODUCTION
-jogra pro heroku
+joga pro heroku
 add flats
 mamae = Flat.create!(address: 'rua copernico 170, Belo Horizonte')
 tatchi = Flat.create!(address: 'Rua Matias Aires 440, Consolação')
@@ -147,7 +158,7 @@ tatchi = Flat.create!(address: 'Rua Matias Aires 440, Consolação')
 
  # Finally, Lets add some styling to our popups
 
- # CUSTOM MARKERS (1)
+ # CUSTOM MARKERS (1) - mostrar airbnb assim nao preciso escrever no codigo
  existem 2 formas de vcs customizarem os popups de vcs.. vcs podem guardar uma imagem
  nos assets de passa-la aqui como como argumento da asset_url
  image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')

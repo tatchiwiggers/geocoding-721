@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
 
   # GET /flats or /flats.json
   def index
-    @flats = Flat.geocoded # => vai retornar os flats com as coordenadas
+    @flats = Flat.all
 
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     # a variável markers é um array de hashes
